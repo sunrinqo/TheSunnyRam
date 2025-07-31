@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>sunrinqo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    html, body {
+  overflow-x: hidden; 
+}
+.tab-section {
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 120px;
+  z-index: 0;
+  padding: 40px;
+  max-width: 800px;
+  margin: auto;
+  background-color: #FFFAE6;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.tab-section.active {
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
+}
+
+nav a {
+  background-color: #fff3cc;
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #ffe299;
+  color: #d48806;
+}
+
+.gallery img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.07);
+  box-shadow: 0 6px 15px rgba(255, 183, 77, 0.4);
+}
+
+.profile-pic {
+  box-shadow: 0 6px 20px rgba(255, 183, 77, 0.3);
+  border: 6px double #FFD580;
+}
+
+.logo {
+  text-shadow: 1px 1px 2px #ffe9c1;
+  letter-spacing: 1px;
+  font-weight: bold;
+  animation: floatLogo 4s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+h2::after {
+  display: block;
+  font-size: 24px;
+  margin-top: 10px;
+  color: #FFD580;
+}
+
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #FFF8DC;
+      color: #333;
+    }
+
+    header {
+      width: 100%;
+      padding: 20px 40px;
+      background-color: #FFF3B0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .quote-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 24px;
+  color: #d4a017;
+  margin-top: 10px;
+}
+
+    .logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 28px;
+      color: #FFB347;
+    }
+
+    .gallery-container {
+  text-align: center;
+}
+
+.gallery-intro {
+  font-style: italic;
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #b68b00;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px 0;
+  justify-items: center;
+}
+
+.gallery img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 4px solid #FFE5B4;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-slides {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  max-width: 800px;
+}
+
+.gallery-slide {
+  display: none;
+  flex-shrink: 0;
+  width: 100%;
+  justify-content: center;
+  gap: 20px;
+}
+
+.gallery-slide.active {
+  display: flex;
+  animation: fade 0.5s ease-in-out;
+}
+
+@keyframes fade {
+  from { opacity: 0.6; }
+  to { opacity: 1; }
+}
+
+.arrow {
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #FFB347;
+  cursor: pointer;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.arrow:hover {
+  color: #ff8c00;
+}
+
+.back-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.back-buttons button {
+  background-color: #FFE5B4;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  color: #b68b00;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.back-buttons button:hover {
+  background-color: #FFD580;
+}
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #555;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      color: #FFB347;
+    }
+
+    .tab-section {
+      display: none;
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+      background-color: #FFFAE6;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .tab-section.active {
+      display: block;
+    }
+
+.center-tab-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.center-tab-content ul {
+  padding: 0;
+  margin: 0;
+}
+.center-tab-content li {
+  list-style: none;
+  margin: 5px 0;
+}
+
+    .profile-pic {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #FFD580;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #FFAE42;
+    }
+
+  footer {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  color: #b68b00;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">TheSunnyRam</div>
+    <nav>
+      <a onclick="showTab('home')">Home</a>
+      <a onclick="showTab('contact')">Contact</a>
+      <a onclick="showTab('gallery')">Gallery</a>
+      <a onclick="showTab('funfact')">Fun Facts</a>
+      <a onclick="showTab('about')">More About Me</a>
+    </nav>
+  </header>
+
+<div id="tab-container" style="position: relative; min-height: 100vh; padding-bottom: 100px;">
+
+  <section id="home" class="tab-section active">
+    <div style="text-align:center">
+      <img src="I2.jpg" alt="Cath's Photo" class="profile-pic">
+      <p class="quote-text">"If you weren't capable, the opportunity would have never come your way. You belong."</p>
+      <h2>Hey, there! I'm Cath!</h2>
+      <p>📍North Caloocan City, Philippines</p>
+      <p>Mabuhay! I am <strong>Catherine Marie S. Deciar</strong>, a 20 year old nursing student from Our Lady of Fatima University Quezon – City Campus.</p>
+      <p>With steady hands and a tender heart, I walk the path of healing — where care becomes art and every heartbeat tells a story.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="tab-section">
+    <div style="text-align:center">
+  <h2>🌻 Contact Me 🌻</h2>
+  <p>You can contact me or send me a message through these platforms:</p>
+  <p><i class="fas fa-phone"></i> 09555564347</p>
+  <p><i class="fas fa-envelope"></i> 
+    <a href="mailto:https://mail.google.com/mail/u/1/#inbox" style="color: #333;">catherinemariedeciar@gmail.com</a></p>
+  <p><i class="fas fa-envelope"></i> 
+    <a href="mailto:https://mail.google.com/mail/u/0/#inbox" style="color: #333;">csdeciar3456qc@student.fatima.edu.ph</a></p>
+  <p><i class="fab fa-facebook"></i> 
+    <a href="https://www.facebook.com/cath.deciar" target="_blank" style="color: #333;">facebook.com/sunrinqo</a></p>
+  <p><i class="fab fa-instagram"></i> 
+    <a href="https://www.instagram.com/sunrinqo/" target="_blank" style="color: #333;">@sunrinqo</a></p>
+</section>
+
+  <section id="gallery" class="tab-section">
+  <div class="gallery-container">
+    <h2>🌻 Gallery 🌻</h2>
+    <p class="gallery-intro">A glimpse into the sunshine-filled moments of my life.</p>
+    <div class="gallery" id="gallery-thumbnails">
+      <img src="I3.jpg" alt="Photobooth 1" onclick="openViewer(0)">
+      <img src="I5.jpg" alt="Photobooth 3" onclick="openViewer(1)">
+      <img src="I4.jpg" alt="Photobooth 2" onclick="openViewer(2)">
+      <img src="I6.jpg" alt="Photobooth 4" onclick="openViewer(3)">
+      <img src="I1.jpg" alt="Photobooth 5" onclick="openViewer(4)">
+      <img src="I7.jpg" alt="Photobooth 6" onclick="openViewer(5)">
+      <img src="I8.jpg" alt="Photobooth 7" onclick="openViewer(6)">
+      <img src="I9.jpg" alt="Photobooth 8" onclick="openViewer(7)">
+      <img src="I10.jpg" alt="Photobooth 9" onclick="openViewer(8)">
+      <img src="I11.jpg" alt="Photobooth 10" onclick="openViewer(9)">
+    </div>
+
+    <div id="gallery-viewer" style="display:none; text-align:center; margin-top:20px;">
+  <img id="viewer-image" src="" style="max-width:80%; max-height:500px; border-radius:20px;">
+</div>
+  </div>
+</section>
+
+<section id="funfact" class="tab-section">
+  <div class="center-tab-content">
+    <h2>🌻 Little Things About Me 🌻</h2>
+    <p style="font-style: italic; color: #b68b00; max-width: 600px; margin-bottom: 30px;">
+      Let me take you on a walk through the soft corners of my world — where life is made up of warm memories, late-night musings, and tiny joys that make my soul quietly smile. These aren’t just facts... they’re fragments of my story. 🌼
+    </p>
+
+    <div style="background-color: #FFF9E6; padding: 30px; border-radius: 20px; box-shadow: 0 4px 10px rgba(255, 197, 113, 0.2); text-align: left; max-width: 700px;">
+      <p>☕ <strong>Sweetness first</strong>—my soul finds comfort in desserts. There’s magic in a bar of chocolate or a warm pastry on a rainy day. I believe God gives us sugar as reminders that life can be soft, too.</p>
+      
+      <p>🌶 <strong>But spice?</strong> That’s where I draw the line. I’ll leave the fire to others—I’d rather chase comfort than heat.</p>
+      
+      <p>📺 <strong>My safe space</strong> is wrapped in cozy school uniforms, cherry blossoms, and plot twists—slice-of-life Asian dramas that reflect ordinary beauty in extraordinary ways.</p>
+      
+      <p>🐾 I adore both <strong>cats and dogs</strong>, but the serenity of a cat’s quiet company speaks to my soul—gentle, silent, sacred.</p>
+      
+      <p>🌼 <strong>Nostalgia</strong> follows me like a perfume—sweet, lingering. I treasure memories like pressed flowers in a book, never quite able to let go of yesterday’s sunshine.</p>
+      
+      <p>🎧 <strong>Music is my lullaby</strong>. Whether I’m wide awake or falling asleep, it anchors me. My playlist is a patchwork of feelings, seasons, and whispered prayers.</p>
+      
+      <p>🎤 In 2018, I fell into the vibrant world of <strong>K-pop</strong>. Though I stan many, EXO holds a forever place in my heart—they’re my comfort sound, my emotional diary in melody form.</p>
+      
+      <p>🎀 Call it childish—but I still lose myself in <strong>Barbie movies</strong>, Disney stories, and Tom & Jerry giggles. Some parts of us are never meant to grow old—and I’m grateful for that.</p>
+      
+      <p>🌻 <strong>I romanticize life</strong>—the sunlight between trees, the warmth of fresh bedsheets, the clink of coffee cups. Little things aren’t little to me. They are life’s softest graces.</p>
+      
+      <p>🍜 Between material gifts and a plate of my favorite food—I’d choose food. Every bite is a blessing. <strong>I’m a food lover</strong>, deeply and unapologetically.</p>
+      
+      <p>👻 <strong>I’m afraid of ghosts</strong>—yet somehow I still enjoy horror movies. Maybe it’s bravery in disguise, or maybe I just enjoy testing my own limits in the safest way possible.</p>
+      
+      <p>😴 Sleep is my loyal friend. I nap like a professional, and honestly, I think it’s my body’s way of telling me: “You’ve done well, now rest.”</p>
+    </div>
+</section>
+  
+<section id="about" class="tab-section">
+  <div class="center-tab-content" style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
+  <h2>🌻 More About Me 🌻</h2>
+    <div style="flex: 0 0 auto;">
+      <div style="background: #fff; border: 1px solid #ccc; padding: 10px 10px 30px; width: 220px; box-shadow: 2px 4px 10px rgba(0,0,0,0.15); text-align: center;">
+        <img src="Kid.jpg" alt="Childhood Photo" style="width: 100%; height: auto; border: 1px solid #ddd;">
+        <p style="margin-top: 10px; font-size: 14px; font-family: 'Courier New', monospace; color: #666;">read my story below</p>
+      </div>
+    </div>
+
+    <div style="max-width: 700px;">
+    <p style="font-style: italic; color: #b68b00; font-size: 18px; max-width: 700px;">
+      They say the stars align with purpose, and that every soul is born with a rhythm — mine beats to the warmth of the sun, the hum of faith, and the soft melodies of memories.
+    </p>
+    <p style="text-align: justify; max-width: 700px; line-height: 1.8;">
+      I came into the world on <strong>April 1, 2005</strong>, under the bold fire sign of <strong>Aries</strong> — a soul both tender and fierce. My journey began in the quiet charm of <strong>Cangmating, Sibulan, Negros Oriental</strong>, where sunlight touched the rice fields and the wind whispered childhood dreams. I now bloom in <strong>Deparo, North Caloocan City</strong>, bringing the same light with me wherever I go.
+    </p>
+    <p style="text-align: justify; max-width: 700px; line-height: 1.8;">
+      As a <strong>20-year-old woman</strong> grounded in grace and guided by purpose, I’ve always found joy in simple things — from scribbling stories in journals, to late-night dramas that make me laugh and cry. My heart is colored <strong>yellow</strong>, the hue of hope, joy, and renewal. Like a <strong>sunflower</strong>, I try to keep my face toward the light, no matter the season.
+    </p>
+    <p style="text-align: justify; max-width: 700px; line-height: 1.8;">
+      When I’m not immersed in nursing books or daydreaming, you’ll find me lost in pages, watching Asian dramas, swinging a badminton racket, or simply listening to music that speaks to the soul. Life, for me, is not a race but a rhythm — one that dances with faith, rests in quiet strength, and believes that even in uncertainty, God is already ahead of me.
+    </p>
+    <p style="margin-top: 40px; font-family: 'Great Vibes', cursive; font-size: 22px; color: #d4a017;">
+      🪔 With grace and light, 🪔 <br>
+      <span style="font-family: 'Great Vibes', cursive;">Cath</span>
+    </p>
+  </div> <!-- end of text block -->
+
+  </div> <!-- end of flex container -->
+</section>
+
+<script>
+  function showTab(tabId) {
+    const tabs = document.querySelectorAll('.tab-section');
+    const newTab = document.getElementById(tabId);
+
+    tabs.forEach(tab => {
+      if (tab.classList.contains('active')) {
+        tab.style.opacity = 0;
+        tab.style.pointerEvents = "none";
+
+        setTimeout(() => {
+          tab.classList.remove('active');
+
+          newTab.classList.add('active');
+          setTimeout(() => {
+            newTab.style.opacity = 1;
+            newTab.style.pointerEvents = "auto";
+          }, 50);
+        }, 300); 
+      }
+    });
+  }
+</script>
+
+  <script>
+  const imageSources = [
+    "I3.jpg", "I5.jpg", "I4.jpg", "I6.jpg", "I1.jpg",
+    "I7.jpg", "I8.jpg", "I9.jpg", "I10.jpg", "I11.jpg"
+  ];
+  let currentIndex = 0;
+
+  function openViewer(index) {
+    currentIndex = index;
+    document.getElementById('gallery-thumbnails').style.display = 'none';
+    document.getElementById('gallery-viewer').style.display = 'block';
+    updateViewer();
+  }
+
+  function closeViewer() {
+    document.getElementById('gallery-thumbnails').style.display = 'grid';
+    document.getElementById('gallery-viewer').style.display = 'none';
+  }
+
+  function updateViewer() {
+    const viewerImage = document.getElementById('viewer-image');
+    viewerImage.src = imageSources[currentIndex];
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % imageSources.length;
+    updateViewer();
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + imageSources.length) % imageSources.length;
+    updateViewer();
+  }
+  document.addEventListener('keydown', function(event) {
+  const viewer = document.getElementById('gallery-viewer');
+  if (viewer && viewer.style.display === 'block') {
+    if (event.key === 'ArrowRight') {
+      nextImage();
+    } else if (event.key === 'ArrowLeft') {
+      prevImage();
+    } else if (event.key === 'Escape') {
+      closeViewer();
+    }
+  }
+});
+    function updateViewer() {
+  const viewerImage = document.getElementById('viewer-image');
+  viewerImage.style.opacity = 0;
+  setTimeout(() => {
+    viewerImage.src = imageSources[currentIndex];
+    viewerImage.onload = () => {
+      viewerImage.style.opacity = 1;
+    };
+  }, 100);
+}
+</script>
+
+<audio id="bg-music" loop>
+  <source src="Rains in Heaven.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<button id="play-music-button">🎵 Play Music</button>
+
+<style>
+  #play-music-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #FFE5B4;
+    color: #b68b00;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 20px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 1001;
+  }
+
+  #play-music-button:hover {
+    background-color: #FFD580;
+  }
+</style>
+
+<script>
+  const music = document.getElementById("bg-music");
+  const playBtn = document.getElementById("play-music-button");
+
+  playBtn.addEventListener("click", () => {
+    music.play();
+    playBtn.textContent = "🎶 Playing...";
+    playBtn.disabled = true;
+    playBtn.style.opacity = 0.7;
+  });
+</script>
+</body>
+</html>                                
